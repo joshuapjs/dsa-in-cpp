@@ -9,7 +9,7 @@ using namespace std;
 vector<int> merge_sort(vector<int> v);
 
 int main() {
-    vector<int> test_array{5, 7, 1, 28, 11, 2, 6, 4};
+    vector<int> test_array{6, 27, 12, 3, 42, 25, 7, 1};
     vector<int> output = merge_sort(test_array);
     for (const auto& element : output) {
     cout << element << " ";
@@ -44,15 +44,12 @@ vector<int> merge_sort(vector<int> v) {
             }
         }
         if (not v_1.empty()) {
-            int v_1_size = v_1.size();
-            for (int i; i < v_1_size; i++) {
-                output_v.push_back(v_1[i]);
-            }}
-        else if (not v_2.empty()) {
-            int v_2_size = v_2.size();
-            for (int i; i < v_2_size; i++) {
-                output_v.push_back(v_2[i]);
+        	output_v.reserve(output_v.size() + distance(v_1.begin(),v_1.end()));
+			output_v.insert(output_v.end(),v_1.begin(),v_1.end());
             }
+        else if (not v_2.empty()) {
+        	output_v.reserve(output_v.size() + distance(v_2.begin(),v_2.end()));
+			output_v.insert(output_v.end(),v_2.begin(),v_2.end());
         }
         return output_v;}
     else {
