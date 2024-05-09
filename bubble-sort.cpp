@@ -3,31 +3,31 @@
 
 using namespace std;
 
-vector<int> bubble-sort;
+int bubble_sort(vector<int> unsorted_v);
 
 int main() {
-    vector<int> test_array = {4, 6, 1, 76, 4, 5, 8, 1, 2, ,4};
-    vector<int> output = bubble-sort;
-    for (const auto& element : output) {
+    vector<int> test_array = {4, 6, 1, 76, 4, 5, 8, 1, 2, 4};
+    bubble_sort(test_array);
+    for (const auto& element : test_array) {
         cout << element << " ";
     }
     cout << endl;
     return 0;
 }
 
-vector<int> bubble-sort(vector<int> unsorted_v) {
-    int* upper_bound = &v.back();
-    while (&v[0] != upper_bound) {
+int bubble_sort(vector<int> unsorted_v) {
+    int* upper_bound = &unsorted_v.back();
+    bool sorted = false;
+    while (sorted == false) {
         int i = 0;
-        bool end_reached = false;
-        while (v[i] > v[i + 1] && end_reached != true) {
-            v[i].swap(v[i + 1]);
-            i += 1;
-            if (&v[i + 1] == upper_bound) {
-                end_reached = true;
-            }
+        sorted = true;
+        for (int element : unsorted_v) {
+           if (&element != upper_bound && element > *(&element + 1)) {
+               sorted = false;
+               swap(element, *(&element + 1));
+           }
         }
-        upper_bound -= 1;
     }
+    return 0;
 }
 
