@@ -1,33 +1,44 @@
+// This is an implementation of a Bubble-Sort-Algorithm.
+// Author: Joshua Spingler
+// Date: 10.05.2024
+
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
-int bubble_sort(vector<int> unsorted_v);
+vector<int> bubble_sort(vector<int> unsorted_v);
 
 int main() {
     vector<int> test_array = {4, 6, 1, 76, 4, 5, 8, 1, 2, 4};
-    bubble_sort(test_array);
+    vector<int> output_v = bubble_sort(test_array);
+    cout << "unsorted array:" << endl;
     for (const auto& element : test_array) {
+        cout << element << " ";
+    }
+    cout << endl;
+    cout << "sorted array:" << endl;
+    for (const auto& element : output_v) {
         cout << element << " ";
     }
     cout << endl;
     return 0;
 }
 
-int bubble_sort(vector<int> unsorted_v) {
+vector<int> bubble_sort(vector<int> unsorted_v) {
     int* upper_bound = &unsorted_v.back();
+    int* lower_bound = &unsorted_v[0];
     bool sorted = false;
     while (sorted == false) {
-        int i = 0;
         sorted = true;
-        for (int element : unsorted_v) {
-           if (&element != upper_bound && element > *(&element + 1)) {
+        for (int* i = lower_bound ; i != upper_bound; i++) {
+            if (i != upper_bound && *i > *(i + 1)) {
                sorted = false;
-               swap(element, *(&element + 1));
+               swap(*i, *(i + 1));
+            }
            }
         }
-    }
-    return 0;
+    return unsorted_v;
 }
 
