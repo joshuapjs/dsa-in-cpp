@@ -19,7 +19,8 @@ int main(int argc, char const *argv[])
 int binary_search(vector<int> v, int value, int index) {
 
 		int vector_size = v.size();
-
+        
+        // Handling all possible cases including the base cases of the recursion.
 		if (vector_size == 1) {
 			cout << "The Element is on position: " << index << "\n";
 			return index;
@@ -38,9 +39,11 @@ int binary_search(vector<int> v, int value, int index) {
 				return index;
 			}
 		}
-
+        // Calculation the index of the center.
 		int middle_index = (vector_size - 1) / 2;
-
+        
+        // Depending on the value in the middle all non relevant values can be excluded.
+        // If values are higher or lower than the value we search for, they become irrelevant.
 		if (v[middle_index] > value)
 		{
 			int delta = (vector_size - 1) - (middle_index + 1);
