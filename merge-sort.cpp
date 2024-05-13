@@ -1,4 +1,4 @@
-// This is implementation of a merge-sort algorithm in C++.
+// This is implementation of a Merge-Sort-Algorithm.
 // Author: Joshua Spingler
 // Date: 02.05.2024 
 
