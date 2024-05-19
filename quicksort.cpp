@@ -11,8 +11,17 @@ int main() {
 }
 
 vector<int> quicksort(vector<int> unsorted_values, int* l, int* r) {
-    
-    
+    if (unsorted_values.size() == 2) {
+        if (unsorted_values[0] > unsorted_values[1]) {
+            swap(unsorted_values[0], unsorted_values[1]);
+            return unsorted_values;
+        }
+        else {
+            return unsorted_values;
+        }
+    }
+
+    int p = unsorted_values.back();
 
     return output;
 }
