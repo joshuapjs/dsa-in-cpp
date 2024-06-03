@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vector>
-#include <cstdlib>
+
 using namespace std;
 
 vector<int> quicksort(vector<int> v);
 
 int main() {
-    vector<int> test_array = {4, 6, 1, 76, 4, 5, 8, 1, 2, 4};
+    vector<int> test_array = {4, 5, 7, 1, 6, 74, 2, 56, 7, 2, 654};
     // Sorting the values.
     vector<int> output_v = quicksort(test_array);
     cout << "unsorted array:" << endl;
@@ -24,40 +24,40 @@ int main() {
 }
 
 vector<int> quicksort(vector<int> v) {
-    if (v.size() == 2) {
-        if (v[0] > v[1]) {
+    if (v.size() == 1 || v.empty()) {
+            return v;
+        }
+    if (v.size() == 2 && v[0] > v[1]) {
             swap(v[0], v[1]);
             return v;
         }
-    }
-    int p = v.back();
     int l = 0;
-    int r = 0;
-    while (&v[r] != &p) {
-        if (v[l] <= p) {
-            l += 1;
+    int r = v.size() - 2;
+    int pivot = v.back();
+
+    while(l < r) {
+        while (v[l] <= pivot && l <= r) {
+            l++;
         }
-        else if ((v[r] <= p) && (l != r)) {
-            swap(v[l], v[r]);
-            r += 1;
+        while (v[r] > pivot && l <= r) {
+            r--;
         }
-        else if (r < l) {
-            r = l;
+        if (l < r) {
+            swap(v[r], v[l]);
         }
-        else {
-            r += 1;
         }
+    if (v[l] > pivot) {
+            swap(v[l], v.back());
     }
-    if (l < v.size() - 1) {
-        swap(v[l], v[v.size() - 1]);
-        vector<int> lower_values = vector<int>(v.begin(), v.begin() + l);
-        vector<int> higher_values = vector<int>(v.begin() + l + 1, v.end());
-        vector<int> sorted_lower = quicksort(lower_values);
-        vector<int> sorted_higher = quicksort(higher_values);
-        sorted_lower[sorted_lower.size() + 1] = v[l];
-        sorted_lower.insert(sorted_lower.end(), sorted_higher.begin(), sorted_higher.end());
-        return sorted_lower;
-    }
-    return v;
+    vector<int> lower_val = vector<int>(v.begin(), v.begin() + l);
+    vector<int> higher_val = vector<int>(v.begin() + l + 1, v.end());
+
+    vector<int> sorted_lower = quicksort(lower_val);
+    vector<int> sorted_higher = quicksort(higher_val);
+
+    sorted_lower.push_back(v[l]);
+    sorted_lower.insert(sorted_lower.end(), sorted_higher.begin(), sorted_higher.end());
+
+    return sorted_lower;
 }
 
