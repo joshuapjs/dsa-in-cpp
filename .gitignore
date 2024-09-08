@@ -1,3 +1,4 @@
 # I learn CMake aswell and practice here sometimes. This is not necessary for the Repo.
-/build-dir
+/build-dir-parent-array
+/build-dir-quicksort
 *.txt
