@@ -131,27 +131,11 @@ class Heap {
 
 	void build_heap() {
 		int end_index = data_array.size() - 1;
-		int start_index = 0;
-		int index = 0;
-		
-		while (end_index > 0) {
-			start_index = (end_index + 1) / 2;
-			index = start_index;
-			
-			while (index <= end_index) {
-				int father = ((index + 1) / 2) - 1;
-				if (index == start_index) {
-					start_index = father;
-				}
-				if ((index + 1) <= end_index) {
-					index++;
-				}
-				repair_down(father);
-				index++;
-			}
-			end_index = start_index * 2;
+		int index = ((end_index + 1)/ 2) - 1;
+		while (index >=0) {
+			repair_down(index);
+			index--;
 		}
-		repair_down(0);
 	};
 
 	int read();
