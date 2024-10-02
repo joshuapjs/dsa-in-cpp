@@ -49,11 +49,11 @@ class Heap {
 			// Decision if child vertecies can exist.
 			// If not the value of the child be set equal with the current index and thereby will never be 
 			// bigger or smaller that the current index.
-			int child_index_a = possible_child_index_a < last_possible_index ? possible_child_index_a : index;
-			int child_index_b = possible_child_index_b < last_possible_index ? possible_child_index_b : index;
+			int child_index_a = possible_child_index_a <= last_possible_index ? possible_child_index_a : index;
+			int child_index_b = possible_child_index_b <= last_possible_index ? possible_child_index_b : index;
 
-			while ((data_array[index] > data_array[child_index_a]) ||
-					(data_array[index] > data_array[child_index_b])) {
+			while ((data_array[index] < data_array[child_index_a]) ||
+					(data_array[index] < data_array[child_index_b])) {
 
 				if (data_array[child_index_a] > data_array[child_index_b]) {
 					iter_swap(data_array.begin() + index,
@@ -72,8 +72,8 @@ class Heap {
 				// Decision if child vertecies can exist.
 				// If not the value of the child be set equal with the current index and thereby will never be 
 				// bigger or smaller.
-				child_index_a = possible_child_index_a < last_possible_index ? possible_child_index_a : index;
-				child_index_b = possible_child_index_b < last_possible_index ? possible_child_index_b : index;
+				child_index_a = possible_child_index_a <= last_possible_index ? possible_child_index_a : index;
+				child_index_b = possible_child_index_b <= last_possible_index ? possible_child_index_b : index;
 			};
 		}
 
@@ -110,20 +110,67 @@ class Heap {
 			data_array.pop_back();
 			return max;
 		} else {
-			cout << "Zero values in Heap - nothing to delete." << endl;
+			cout << "No values in the Heap" << endl;
 			return 0;
 		}
 	};
 
-	int change_priority();  // TODO Write this function
-	void build_heap();
-	void heap_sort();
+	int change_priority(int index, int new_priority) {
+		int old_priority = data_array[index];
+		data_array[index] = new_priority;
+		if (new_priority < old_priority) {
+			repair_down(index);
+			return 1;
+		} else if (new_priority > old_priority) {
+			repair_up(index);
+			return 1;
+		} else {
+			return 0;
+		}
+	};  
+
+	void build_heap() {
+		int end_index = data_array.size() - 1;
+		int start_index = 0;
+		int index = 0;
+		
+		while (end_index > 0) {
+			start_index = (end_index + 1) / 2;
+			index = start_index;
+			
+			while (index <= end_index) {
+				int father = ((index + 1) / 2) - 1;
+				if (index == start_index) {
+					start_index = father;
+				}
+				if ((index + 1) <= end_index) {
+					index++;
+				}
+				repair_down(father);
+				index++;
+			}
+			end_index = start_index * 2;
+		}
+		repair_down(0);
+	};
+
 	int read();
 	void remove();
 	
 	};
 
 int main() {
+	vector<int> test_vector{ 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26 };
+	Heap test_heap{ test_vector };
+	for (int i = 0; i <= (test_heap.data_array.size() - 1); i++) {
+		cout << test_heap.data_array[i] << " ";
+	}
+	cout << endl;
+	test_heap.build_heap();
+	for (int i = 0; i <= (test_heap.data_array.size() - 1); i++) {
+		cout << test_heap.data_array[i] << " ";
+	};
+	cout << endl;
 	return 0;
 	}
 
