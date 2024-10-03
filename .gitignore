@@ -4,4 +4,5 @@
 /build-dir-heap
 /build
 main.cpp
+.DS_Store
 *.txt
