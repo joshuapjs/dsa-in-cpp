@@ -2,4 +2,6 @@
 /build-dir-parent-array
 /build-dir-quicksort
 /build-dir-heap
+/build
 *.txt
+main.cpp
