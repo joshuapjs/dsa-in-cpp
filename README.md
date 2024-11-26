@@ -1,12 +1,11 @@
 # dsa-in-cpp
 
-This is a collection of little programs I implemented to practice writing C++.
+A collection of common data structures and algorithms that I implemented.
 
 ## About
 
-By now I implemented some Algorithms, but there are different programs to be added in the future. As I am still learning, my code might not be optimized perfectly yet. However I intend to optimize it whenever I have gained a deeper understanding about how C++ works. This Repository is also indended to be a reference for popular algorithms in CS.
+This Repository is indended to be a reference for common data strucutures and algorithms in CS. As I am still learning, my code might not be optimized. However I intend to optimize it whenever I have gained a deeper understanding about how C++ works.
 
 ## Contribution
 
-Please feel free to contribute - I am always very happy about ideas and hints for further improvement.
-
+Please feel free to contribute. I am always very happy about ideas and hints for further improvement.
