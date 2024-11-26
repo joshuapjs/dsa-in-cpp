@@ -1,4 +1,4 @@
-# Cpp-snippets
+# dsa-in-cpp
 
 This is a collection of little programs I implemented to practice writing C++.
 
