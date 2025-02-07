@@ -2,4 +2,7 @@
 /build-dir-parent-array
 /build-dir-quicksort
 /build-dir-heap
+/build
+main.cpp
+.DS_Store
 *.txt
