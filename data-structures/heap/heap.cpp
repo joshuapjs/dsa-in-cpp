@@ -57,7 +57,11 @@ void Heap::repair_down(int index) {
 
 		// Decision if child vertecies exist.
 		// If not the value of the child will be set equal to the current index and thereby never be 
+<<<<<<< HEAD
 		// bigger or smaller than the current index. This will falsify the while loop if both indices are 
+=======
+		// bigger or smaller that the current index. This will falsify the while loop if both indices are 
+>>>>>>> fd63fb2ce9921aa62cfd30efcfb5bf12865a3310
 		int child_index_a = possible_child_index_a <= last_possible_index ? possible_child_index_a : index;
 		int child_index_b = possible_child_index_b <= last_possible_index ? possible_child_index_b : index;
 
@@ -125,7 +129,11 @@ vector<int> Heap::read() const {
 	return data_array;
 }
 
+<<<<<<< HEAD
 void Heap::add(const int element) {
+=======
+void Heap::add(int element) {
+>>>>>>> fd63fb2ce9921aa62cfd30efcfb5bf12865a3310
 	// push_back adds an element at the End of the veoctor in increases the size if necessary.
 	data_array.push_back(element);
 }
