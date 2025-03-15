@@ -3,6 +3,8 @@
 /build-dir-quicksort
 /build-dir-heap
 /build
+*.vscode
 main.cpp
 .DS_Store
 *.txt
+*.dSYM
