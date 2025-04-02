@@ -22,11 +22,7 @@ class Heap {
 	Heap(Heap&& other) noexcept;
 	Heap& operator=(Heap&& other) noexcept;
 	vector<int> read() const;
-<<<<<<< HEAD
 	void add(const int element);
-=======
-	void add(int element);
->>>>>>> fd63fb2ce9921aa62cfd30efcfb5bf12865a3310
 	void remove(int index);
 	int delete_max();
 	int change_priority(int index, int new_priority);
