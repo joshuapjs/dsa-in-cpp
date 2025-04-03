@@ -68,7 +68,6 @@ class FibonacciHeap {
         auto element_found = std::find(marked.begin(), marked.end(), parent_vertex);
         if (element_found == marked.end()) { // In this case the vertex is not a marked vertex.
             // We copy the value of the parent_vertex pointer, so that we can Override the cell.
-            // TODO Maybe we can even move it ?
             Vertex tmp = *parent_vertex;
             marked.push_back(&tmp);  // We "mark" the vertex by pushing it in the marked vector.
             parent_vertex = nullptr;
