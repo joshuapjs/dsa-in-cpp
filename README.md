@@ -1,8 +1,19 @@
 # dsa-in-cpp
 
-A collection of common data structures and algorithms that I implemented.
+- [Overview](#Overview)
+- [About](#About)
+- [data-structures](#data-structures)
+- [sorting-algorithms](#sorting-algorithms)
+- [other-algorithms](#other-algorithms)
+- [Contribution](#Contribution)
 
 ## Overview
+
+A collection of common data structures and algorithms that I implemented.
+
+## About
+
+This Repository is indended to be a reference for common data structures and algorithms in CS.
 
 ### data-structures
 
@@ -10,9 +21,9 @@ A collection of common data structures and algorithms that I implemented.
     - Parent Array Tree Representation
     - Left-Child Right-Sibling Tree Representation
 - Heap
-    - Heap class and Template: Please note that, to use the Template, a member `int priority` must be implemented in your **own** class objects. Please make sure to assign a priority to each object you want the Heap to be instantiated with.
+    - Heap class and Template: Please note that, to use the Template, a member `int priority` must be implemented in your **own** class/struct. Please make sure to assign a priority to each object you want the Heap to be instantiated with.
 - Fibonacci-Heap
-    - An interesting alterenative to plain vanilla Binary Heaps are Fibonacci-Heaps. Theoretically they have an interesting performance Profile and are a viable choice to increase the performance of the SSSP Algorithm (aka Dijkstra's Algorithm). However in real-world application it has been shown that the pairing-heap is, with regards to implementation, a simpler and faster solution compared to the fibonacci-heap. 
+    - An interesting alternative to Binary Heaps are Fibonacci-Heaps. Theoretically they have an interesting performance Profile and are a viable choice to increase the performance of the SSSP Algorithm (aka Dijkstra's Algorithm). However in real-world application it has been shown that the pairing-heap is, with regards to implementation, a simpler and also faster solution compared to the Fibonacci-Heap. 
 
 
 ### sorting-algorithms
@@ -25,10 +36,6 @@ A collection of common data structures and algorithms that I implemented.
 
 - Binary Search
 - Matrix Product 
-
-## About
-
-This Repository is indended to be a reference for common data structures and algorithms in CS. As I am still learning, my code might not be optimized. However I intend to optimize it whenever I have gained a deeper insight into cpp or the algorithm.
 
 ## Contribution
 
